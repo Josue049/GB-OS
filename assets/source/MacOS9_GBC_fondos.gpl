@@ -1,0 +1,36 @@
+GIMP Palette
+Name: OSGB Mac OS 9 - Game Boy Color BG
+Columns: 4
+# 8 paletas de 4 colores de fondo; adaptar tiles de 8x8 a una paleta cada uno
+ 82  74 140	BG0 Escritorio morado 0
+ 99  99 156	BG0 Escritorio morado 1
+123 115 181	BG0 Escritorio morado 2
+148 148 197	BG0 Escritorio morado 3
+  0   0   0	BG1 Menus Finder 0
+140 140 140	BG1 Menus Finder 1
+222 222 222	BG1 Menus Finder 2
+255 255 255	BG1 Menus Finder 3
+  0   0   0	BG2 Ventanas clasicas 0
+107 107 107	BG2 Ventanas clasicas 1
+189 189 189	BG2 Ventanas clasicas 2
+239 239 239	BG2 Ventanas clasicas 3
+  0   0   0	BG3 Iconos violetas 0
+ 74  74 140	BG3 Iconos violetas 1
+173 165 239	BG3 Iconos violetas 2
+255 255 255	BG3 Iconos violetas 3
+181 206 239	BG4 Arranque celeste 0
+189 214 247	BG4 Arranque celeste 1
+206 222 247	BG4 Arranque celeste 2
+230 239 255	BG4 Arranque celeste 3
+  0   0   0	BG5 Launcher inferior 0
+156 156 156	BG5 Launcher inferior 1
+189 189 189	BG5 Launcher inferior 2
+222 222 222	BG5 Launcher inferior 3
+  0   0   0	BG6 Acentos azul/violeta 0
+ 82  82 165	BG6 Acentos azul/violeta 1
+140 115 222	BG6 Acentos azul/violeta 2
+255 255 255	BG6 Acentos azul/violeta 3
+  0   0   0	BG7 Iconos multicolor 0
+247  74  74	BG7 Iconos multicolor 1
+255 214  74	BG7 Iconos multicolor 2
+ 74 197 115	BG7 Iconos multicolor 3

@@ -1,0 +1,15 @@
+# Archivos que genera la compilación o el emulador
+build/*
+!build/MacOS9.gbc
+*.sav
+*.ram
+*.ihx
+*.map
+*.noi
+*.lst
+*.rel
+*.sym
+*.asm
+*.adb
+__pycache__/
+assets/generated/preview_*.png
