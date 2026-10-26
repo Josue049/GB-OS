@@ -13,6 +13,35 @@ la cruceta y los botones A/B de la consola, con un cursor de flecha clásico.
 
 ---
 
+## Jugar en el navegador
+
+**▶ [Abrir la web y jugar ahora](https://josue049.github.io/GB-OS-MacOS9/)** — la ROM corre directamente en tu navegador con un emulador de Game Boy Color
+(WasmBoy), sin instalar nada. Funciona con teclado (flechas, **Z** = A, **X** = B, **Shift** = Select, **Enter** = Start)
+y con los botones en pantalla, también en el móvil.
+
+<p align="center">
+  <img src="docs/img/web_macos9.jpg" width="720" alt="Web de OS/GB con Mac OS 9 GB corriendo en la consola">
+</p>
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/img/web_ubuntu.jpg" width="360"><br><sub>Ubuntu GB (próximamente)</sub></td>
+    <td align="center"><img src="docs/img/web_windows11.jpg" width="360"><br><sub>Windows 11 GB (próximamente)</sub></td>
+  </tr>
+</table>
+
+La web es estática (HTML, CSS y JavaScript sin frameworks) y vive en [`web/`](web/). Se publica automáticamente en
+GitHub Pages con cada cambio en `main`. Para probarla en local:
+
+```powershell
+cd web
+python -m http.server 8765      # luego abre http://localhost:8765
+```
+
+Para añadir otro sistema basta con agregarlo en [`web/js/systems.js`](web/js/systems.js) y dejar su ROM en `web/roms/`.
+
+---
+
 ## Motivo del proyecto
 
 Mac OS 9 tiene una identidad gráfica muy reconocible (la interfaz *Platinum*, el Launcher, la cara del Finder) y la
@@ -136,7 +165,9 @@ assets/source/     Diseño original: XCF de GIMP, paleta .gpl, capas exportadas 
 assets/generated/  Tiles, mapas y paletas convertidos (gen_graficos.c/.h)
 tools/             convert_assets.py (conversor), export_layers.py (GIMP) y fuente 8x8
 build/             ROM compilada
+web/               Web estática con el emulador (se publica en GitHub Pages)
 docs/img/          Capturas usadas en este README
+.github/workflows Despliegue de la web en GitHub Pages
 ```
 
 ## Datos técnicos
@@ -156,6 +187,7 @@ docs/img/          Capturas usadas en este README
 
 - Autor: [Josue049](https://github.com/Josue049) — diseño, programación y desarrollo del proyecto.
 - Compilado con [GBDK-2020](https://github.com/gbdk-2020/gbdk-2020).
+- Emulador web: [WasmBoy](https://github.com/torch2424/wasmboy).
 - Fuente 8×8: [font8x8](https://github.com/dhepper/font8x8) (dominio público).
 
 Este es un proyecto fan sin ánimo de lucro y **sin relación con Apple Inc.** *Macintosh*, *Mac OS* y *Finder* son marcas

@@ -1,0 +1,40 @@
+/* Sistemas disponibles. Para activar uno nuevo basta con poner la ruta de su ROM en `rom`
+   (y dejar el archivo en web/roms/): el selector, el emulador y los botones de descarga se actualizan solos. */
+window.SYSTEMS = [
+  {
+    id: 'macos9',
+    name: 'Mac OS 9 GB',
+    short: 'Mac OS 9',
+    tagline: 'Classic desktop experience',
+    logo: 'img/maclogo.png',
+    title: 'img/titulomac.webp',
+    bg: 'img/macfondo.webp',
+    desc: 'The classic desktop experience, reimagined for Game Boy Color.',
+    rom: 'roms/MacOS9.gbc',
+    file: 'MacOS9.gbc',
+  },
+  {
+    id: 'ubuntu',
+    name: 'Ubuntu GB',
+    short: 'Ubuntu',
+    tagline: 'Modern and minimal',
+    logo: 'img/ubuntulogo.png',
+    title: 'img/tituloubuntu.webp',
+    bg: 'img/ubuntufondo.webp',
+    desc: 'A modern and minimal Linux experience, reimagined for Game Boy Color. Still being built.',
+    rom: null,
+    file: 'UbuntuGB.gbc',
+  },
+  {
+    id: 'windows11',
+    name: 'Windows 11 GB',
+    short: 'Windows 11',
+    tagline: 'A modern twist',
+    logo: 'img/windowslogo.png',
+    title: 'img/titulowindows.webp',
+    bg: 'img/windowsfondo.webp',
+    desc: 'A modern twist, reimagined for Game Boy Color. Still being built.',
+    rom: null,
+    file: 'Windows11GB.gbc',
+  },
+];

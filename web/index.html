@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>OS/GB — Mac OS 9 on Game Boy Color</title>
+  <meta name="description" content="Play Mac OS 9 GB in your browser: a Game Boy Color ROM that recreates a classic desktop operating system.">
+  <meta name="theme-color" content="#0a0620">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0620'/%3E%3Crect x='3' y='2' width='10' height='12' fill='%237c3aed'/%3E%3Crect x='5' y='4' width='6' height='5' fill='%23c4b5fd'/%3E%3C/svg%3E">
+  <link rel="preload" href="img/gbcolor.webp" as="image">
+  <link rel="preload" href="img/titulomac.webp" as="image">
+  <link rel="preload" href="fonts/press-start-2p.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Iconos -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" d="M12 3v12M7 10l5 5 5-5M4 20h16"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v6" stroke="currentColor" stroke-width="2"/><rect x="11" y="7" width="2" height="2" fill="currentColor"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><rect x="6" y="6" width="12" height="12"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></g></symbol>
+    <symbol id="i-handheld" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="4" y="2.5" width="16" height="19" rx="2"/><rect x="7" y="5.5" width="10" height="7"/><path d="M8.5 17h3M10 15.5v3"/><circle cx="16" cy="17" r="1"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 20.5S3.5 15 3.5 8.9A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 8.5 1.9C20.5 15 12 20.5 12 20.5Z"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></symbol>
+    <symbol id="i-tri-up" viewBox="0 0 10 10"><path fill="currentColor" d="M5 2l4 6H1z"/></symbol>
+    <symbol id="i-tri-down" viewBox="0 0 10 10"><path fill="currentColor" d="M5 8L1 2h8z"/></symbol>
+    <symbol id="i-tri-left" viewBox="0 0 10 10"><path fill="currentColor" d="M2 5l6-4v8z"/></symbol>
+    <symbol id="i-tri-right" viewBox="0 0 10 10"><path fill="currentColor" d="M8 5L2 1v8z"/></symbol>
+
+  </svg>
+
+  <div class="backdrop" id="backdrop" aria-hidden="true">
+    <div class="bg is-shown" id="bg-a"></div>
+    <div class="bg" id="bg-b"></div>
+  </div>
+  <div class="scene-fade" aria-hidden="true"></div>
+
+  <div class="page">
+    <!-- Cabecera -->
+    <header class="top">
+      <a class="logo" href="#" aria-label="OS/GB">OS<span>/</span><em>GB</em></a>
+      <nav class="top-actions">
+        <a class="btn btn-ghost" href="https://github.com/Josue049/GB-OS-MacOS9" target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-github"/></svg><span>GitHub</span>
+        </a>
+        <a class="btn btn-primary js-download" href="roms/MacOS9.gbc" download="MacOS9.gbc">
+          <svg class="ico"><use href="#i-download"/></svg><span>Download ROM</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Presentación -->
+    <div class="left">
+      <section class="hero" aria-live="polite">
+        <h1 class="hero-art"><img id="os-art" src="img/titulomac.webp" alt="OS/GB presents Mac OS 9 GB. The classic desktop experience, reimagined for Game Boy Color." width="1240" height="564" draggable="false"></h1>
+      </section>
+
+      <ul class="features">
+        <li><svg class="ico"><use href="#i-chip"/></svg><div><b>GBDK-2020</b><span>Built in C</span></div></li>
+        <li><svg class="ico"><use href="#i-handheld"/></svg><div><b>Real Hardware</b><span>160 × 144</span></div></li>
+        <li><svg class="ico"><use href="#i-heart"/></svg><div><b>Open Source</b><span>Free to play</span></div></li>
+      </ul>
+    </div>
+
+    <!-- Game Boy Color -->
+    <main class="stage" id="stage">
+      <div class="gbc" id="gbc">
+        <img class="gbc-body" src="img/gbcolor.webp" alt="" width="899" height="1512" draggable="false">
+        <div class="gbc-led" id="led"></div>
+
+        <div class="gbc-screen" id="screen">
+          <canvas id="lcd" width="160" height="144" aria-label="Game Boy Color screen"></canvas>
+          <div class="screen-msg" id="screen-msg" role="status">
+            <div class="msg-title" id="msg-title">LOADING</div>
+            <div class="msg-sub" id="msg-sub"></div>
+          </div>
+          <div class="screen-glass"></div>
+        </div>
+
+        <div class="dpad" id="dpad" data-dpad>
+          <i class="lit lit-up" data-light="UP"></i>
+          <i class="lit lit-down" data-light="DOWN"></i>
+          <i class="lit lit-left" data-light="LEFT"></i>
+          <i class="lit lit-right" data-light="RIGHT"></i>
+        </div>
+
+        <button class="round b" data-btn="B" aria-label="B"></button>
+        <button class="round a" data-btn="A" aria-label="A"></button>
+        <button class="pill select" data-btn="SELECT" aria-label="Select"></button>
+        <button class="pill start" data-btn="START" aria-label="Start"></button>
+      </div>
+    </main>
+
+    <!-- Panel lateral -->
+    <aside class="side">
+      <section class="panel">
+        <h2 class="panel-title">Choose a system</h2>
+        <ul class="systems" id="systems" role="radiogroup" aria-label="Choose a system"></ul>
+      </section>
+
+      <section class="panel controls">
+        <div class="panel-head">
+          <h2 class="panel-title">Emulator Controls</h2>
+          <button class="btn-full" id="fs" type="button"><svg class="ico"><use href="#i-full"/></svg><span>Fullscreen</span></button>
+        </div>
+        <div class="keys">
+          <div class="key-dpad">
+            <button class="key" data-btn="UP"    aria-label="Up"><svg><use href="#i-tri-up"/></svg></button>
+            <button class="key" data-btn="LEFT"  aria-label="Left"><svg><use href="#i-tri-left"/></svg></button>
+            <button class="key" data-btn="RIGHT" aria-label="Right"><svg><use href="#i-tri-right"/></svg></button>
+            <button class="key" data-btn="DOWN"  aria-label="Down"><svg><use href="#i-tri-down"/></svg></button>
+          </div>
+          <div class="key-act">
+            <button class="key key-text" data-btn="A"><b>A</b><small>Z</small></button>
+            <button class="key key-text" data-btn="B"><b>B</b><small>X</small></button>
+            <button class="key key-text" data-btn="SELECT"><b>Select</b><small>Shift</small></button>
+            <button class="key key-text" data-btn="START"><b>Start</b><small>Enter</small></button>
+          </div>
+        </div>
+        <p class="hint"><svg class="ico"><use href="#i-info"/></svg><span>Use your keyboard or click the buttons</span></p>
+      </section>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/vendor/wasmboy.js"></script>
+    <script src="js/systems.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
