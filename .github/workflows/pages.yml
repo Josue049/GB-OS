@@ -1,4 +1,4 @@
-name: Publicar web
+name: Publicar web (carpeta web/)
 
 on:
   push:
