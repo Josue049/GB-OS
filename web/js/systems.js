@@ -21,8 +21,8 @@ window.SYSTEMS = [
     logo: 'img/ubuntulogo.png',
     title: 'img/tituloubuntu.webp',
     bg: 'img/ubuntufondo.webp',
-    desc: 'A modern and minimal Linux experience, reimagined for Game Boy Color. Still being built.',
-    rom: null,
+    desc: 'A modern and minimal Linux experience, reimagined for Game Boy Color.',
+    rom: 'roms/UbuntuGB.gbc',
     file: 'UbuntuGB.gbc',
   },
   {
@@ -33,8 +33,8 @@ window.SYSTEMS = [
     logo: 'img/windowslogo.png',
     title: 'img/titulowindows.webp',
     bg: 'img/windowsfondo.webp',
-    desc: 'A modern twist, reimagined for Game Boy Color. Still being built.',
-    rom: null,
+    desc: 'A modern twist, reimagined for Game Boy Color.',
+    rom: 'roms/Windows11GB.gbc',
     file: 'Windows11GB.gbc',
   },
 ];

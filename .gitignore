@@ -1,6 +1,8 @@
 # Archivos que genera la compilación o el emulador
 build/*
 !build/MacOS9.gbc
+!build/UbuntuGB.gbc
+!build/Windows11GB.gbc
 *.sav
 *.ram
 *.ihx
