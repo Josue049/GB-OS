@@ -17,7 +17,7 @@ la cruceta y los botones A/B de la consola, con un cursor de flecha clásico.
 
 ## Jugar en el navegador
 
-**▶ [Abrir la web y jugar ahora](https://josue049.github.io/GB-OS-MacOS9/)** — las ROMs corren directamente en tu navegador con un emulador de Game Boy Color
+**▶ [Abrir la web y jugar ahora](https://josue049.github.io/GB-OS/)** — las ROMs corren directamente en tu navegador con un emulador de Game Boy Color
 (WasmBoy), sin instalar nada; con el selector eliges Mac OS 9, Ubuntu o Windows 11. Funciona con teclado (flechas, **Z** = A, **X** = B, **Shift** = Select, **Enter** = Start)
 y con los botones en pantalla, también en el móvil.
 
